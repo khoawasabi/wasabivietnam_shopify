@@ -1,0 +1,9 @@
+{% assign current_url_part = canonical_url | split: '://' %}
+{% assign current_url_proto = current_url_part | first %}
+{% assign current_url_domain = current_url_part | last %}
+{% assign current_url_part = current_url_domain | split: '/' %}
+{% assign current_url_first = current_url_part | first  %}
+{% capture base_url %}{{ current_url_proto }}://{{ current_url_first }}{% endcapture %}
+{% assign current_url = canonical_url | remove: base_url  %}{% if 1==2 %}{% else %}	<link rel="alternate" hreflang="en" href="{{ base_url }}{{ current_url }}">
+	<link rel="alternate" hreflang="ja" href="{{ base_url }}/a/l/ja{{ current_url }}">
+	<link rel="alternate" hreflang="vi" href="{{ base_url }}/a/l/vi{{ current_url }}">{% endif %}<link rel="stylesheet" id="font-awesome-css" href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css?ver=4.5.2" type="text/css" media="all"><link rel="stylesheet" href="https://shopify.weglot.com/wgcss_v2.css" type="text/css" media="all">
